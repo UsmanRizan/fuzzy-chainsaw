@@ -9,7 +9,9 @@ const app = express()
 
 console.log(process.env.MONGO_URI)
 
-app.post("/products",async (req,res)=>{
+app.use(express.json())
+
+app.post("/api/products",async (req,res)=>{
     const product = req.body
     if (!product.name||!product.price||!product.image) {
         return res.status(400).json({success:false,message:"please provide all fields"})
@@ -19,11 +21,17 @@ app.post("/products",async (req,res)=>{
 
     try {
         await newProduct.save()
+        res.status(201).json({success:true,data:newProduct})
     } catch (error) {
         console.error("Error in creating product:",error.message)
         res.status(500).json({success:false,message:"server error"})
     }
 
+})
+
+app.delete("api/products/:id",async(req,res)=>{
+    const {id} = req.params
+    console.log(":id",id)
 })
 
 app.listen(5000,()=>{

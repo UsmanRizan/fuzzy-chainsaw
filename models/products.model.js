@@ -1,4 +1,4 @@
-import timespan from "jsonwebtoken/lib/timespan";
+
 import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
