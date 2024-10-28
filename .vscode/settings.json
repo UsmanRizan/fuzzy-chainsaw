@@ -1,0 +1,11 @@
+{
+    "notebook.defaultFormatter": "GitHub.copilot",
+    "editor.defaultFoldingRangeProvider": "GitHub.copilot",
+    "editor.defaultFormatter": "GitHub.copilot",
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "plaintext": true,
+        "markdown": true,
+        "scminput": true
+    }
+}
