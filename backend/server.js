@@ -39,7 +39,25 @@ app.post("/api/products",async (req,res)=>{
         res.status(500).json({success:false,message:"server error"})
     }
 
-})
+})  // create a products
+
+app.put("/api/products/:id",async(req,res)=>{
+    const {id} = req.params
+    const product = req.body
+
+    if (!mongoose.Types.ObjectId.isValid(id)) { // check if the id is valid
+        return res.status(404).json({success:false,message:"Invalid product id"})
+    }
+
+    try {
+        const updatedProduct = await Product.findByIdAndUpdate(id,product,{new:true})
+        res.status(200).json({success:true,data:updatedProduct})
+    } catch (error) {
+        console.error("Error in updating product:",error.message)
+        res.status(500).json({success:false,message:"server error"})
+    }
+
+})  // update a products by id
 
 app.delete("/api/products/:id",async(req,res)=>{
     const {id} = req.params
