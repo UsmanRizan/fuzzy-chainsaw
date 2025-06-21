@@ -1,11 +1,12 @@
 {
     "notebook.defaultFormatter": "GitHub.copilot",
     "editor.defaultFoldingRangeProvider": "GitHub.copilot",
-    "editor.defaultFormatter": "GitHub.copilot",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.inlineSuggest.enabled": true,
     "github.copilot.enable": {
         "plaintext": true,
         "markdown": true,
         "scminput": true
-    }
+    },
+    "editor.cursorStyle": "line"
 }
